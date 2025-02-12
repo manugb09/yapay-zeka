@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yazı Gönderme</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Yazınızı Gönderin</h1>
+        <form id="messageForm">
+            <label for="userMessage">Mesajınız:</label>
+            <textarea id="userMessage" name="userMessage" rows="4" placeholder="Buraya yazınızı yazın..."></textarea>
+            <button type="submit">Gönder</button>
+        </form>
+        <div id="response"></div>
+    </div>
+
+    <script>
+        document.getElementById('messageForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const message = document.getElementById('userMessage').value;
+
+            // Burada yazıyı GitHub'a gönderebiliriz veya başka bir işlem yapabiliriz
+            if (message) {
+                document.getElementById('response').innerText = "Mesajınız alındı: " + message;
+                // Burada backend ile API'ye gönderim yapılabilir.
+            } else {
+                alert('Lütfen bir mesaj yazın.');
+            }
+        });
+    </script>
+</body>
+</html>
